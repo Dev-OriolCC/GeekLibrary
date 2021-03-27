@@ -19,7 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // View Book
 Route::get('showBook/{book}', 'WelcomeController@showBook')->name('showBook');
 // Download PDF
-Route::get('makePDF/{book}', 'WelcomeController@makePDF')->name('makePDF');
+Route::get('makePDF', 'WelcomeController@makePDF')->name('makePDF');
 
 
 

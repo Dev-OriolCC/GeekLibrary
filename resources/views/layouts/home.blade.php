@@ -18,7 +18,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background: linear-gradient(90deg, rgba(60,60,215,1) 9%, rgba(1,175,210,1) 100%);">
                 <a class="navbar-brand" href="{{ route('index') }}"><h2><img class="mx-3" src="https://img2.pngio.com/home-ammar-sabil-geek-avatar-png-460_460.png" width="60px" height="60px" alt="">Biblioteca Geek</h2></a>
                 <!-- Navbar content -->
-
+                        <!-- BUSCADOR -->
                         <div class="col-sm-5 col-12  inline ">
                             <form class="d-flex" action="{{ route('index') }}" method="GET" >
                             
@@ -83,8 +83,8 @@
                 @yield('content')
             </div>
             <!-- Footer  -->
-            <footer class="footer mt-auto py-3 bg-light">
-                <div class="container">
+            <footer class="page-footer fixed-bottom mt-auto py-3 bg-light">
+                <div class="container-fluid text-center">
                     <span class="text-muted">Geek Compania© todos los derechos reservados.</span>
                 </div>
             </footer>

@@ -29,7 +29,7 @@
                                             <button type="submit" class="btn btn-info text-white">Restablecer</button>
                                     </form>
                                 @else
-                                    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary">Actualizar</a></td>
+                                    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary">Editar</a></td>
                                 @endif
                             <td>
                                 <form action="{{ route('books.destroy', $book->id) }}" method="POST">

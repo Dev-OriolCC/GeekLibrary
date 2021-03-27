@@ -14,7 +14,7 @@ class WelcomeController extends Controller{
         
         $search = request()->query('search');
         if($search){
-            // Query Builder to search in four columns in table books
+            // Query Builder to search in three columns in table books
             $books = Book::query()
                 ->where('title', 'LIKE', "%{$search}%")
                 ->orWhere('author', 'LIKE', "%{$search}%")
@@ -35,30 +35,18 @@ class WelcomeController extends Controller{
 
     }
 
-    // View for a inividual Book
+    // Vista para libro individual
     public function showBook(Book $book){
         return view('book')->with('book', $book);
     }
 
     //Make PDF 
-    public function makePDF(Book $book){
-        $data = [
-            'title' => $book->title,
-            'author' => $book->author,
-            'description' => $book->description,
-            'image' => $book->image,
-            'isbn' => $book->isbn,
-            'publisher' => $book->publisher,
-            'pages' => $book->pages,
-            'edition' => $book->edition,
-            'country' => $book->country,
-            'year' => $book->year,
-            'descriptionLong' => $book->descriptionLong
-        ];
-        $pdf = PDF::loadview('bookPDF', $data);
-        $pdfNumber = $data['isbn'];
-        
-        return $pdf->download("InformacionLibro_$pdfNumber.pdf");
+    public function makePDF(){
+        $data = Book::all();
+        //dd($data);
+        //return view('bookPDF')->with('data', $data);
+        $pdf = PDF::loadview('bookPDF', compact('data'));        
+        return $pdf->download("ReporteLibros_GeekLibrary.pdf");
     }
 
     

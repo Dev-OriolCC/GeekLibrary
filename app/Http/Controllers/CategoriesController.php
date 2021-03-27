@@ -85,8 +85,14 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
-        session()->flash('success', 'El libro se a eliminado exitosamente');
-        return redirect(route('categories.index'));
+        if ($category->books->count() > 0) {
+            session()->flash('error', 'Categoria no se puede eliminar porque hay libros asociados 😓');
+            return redirect(route('categories.index'));
+        }else{     
+            $category->delete();
+            session()->flash('success', 'La Categoria se a eliminado exitosamente 😀');
+            return redirect(route('categories.index'));
+        }
+
     }
 }

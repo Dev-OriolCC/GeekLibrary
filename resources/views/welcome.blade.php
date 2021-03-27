@@ -3,10 +3,15 @@
 @section('content')
     
     <div class="container">
+            <div class="col-8 col-lg-3 mt-4 mb-4">
+                <a href="{{ route('makePDF') }}" class="btn btn-info text-white">Descargar Reporte de Libros</a>            
+            </div>
         <div class="row">
+
             @if($books->isNotEmpty() )
+            <!-- CARD -->
                 @foreach($books as $book)
-                    <div class="col-12 col-lg-3 mt-5 mb-5">
+                    <div class="col-12 col-lg-3 mb-5">
                         <div class="card d-block bg-light" style="height: 675px;">
                             <div class="card-img-top">
                                 <div align="center" class="mt-2">
@@ -22,6 +27,8 @@
                         </div>
                     </div>
                 @endforeach
+            <!-- TERMINAN LAS CARDS -->
+
             @else
                 <h2 class="text-primary">No se econtraron libros {{ isset($search) ? "para tu busqueda: $search " : '' }} 😔😔</h2>
             @endif
