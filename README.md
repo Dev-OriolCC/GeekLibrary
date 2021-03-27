@@ -1,5 +1,5 @@
 
-## Geek Libray 🤓📕
+## Geek Library 🤓📕
 
 Geek Library is a simple Library Page I built using Laravel 7.3 Framework, PHP, MySQL, Bootstrap Framework.🙂😀
 
